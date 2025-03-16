@@ -1,124 +1,137 @@
-Cotonti. Импорт из Excel через PhpSpreadsheet
+<h1>Cotonti. Импорт из Excel через PhpSpreadsheet</h1>
 
-Плагин импорта статей для всех сайтов на Cotonti.
+<h2>Плагин импорта статей для всех сайтов на Cotonti.</h2>
 
-Важные технические замечания:
+<p>&nbsp;</p>
 
-1. Используется библиотека PhpSpreadsheet версии 1.23.0 без Composer. 
-2. Тестировалось на сайте Cotonti 0.9.26 под версией PHP 8.2
-3. Библиотека PhpSpreadsheet не обновлять более поздними версиями, то есть версиями новее, чем 1.23.0, потому что дальше уже требует Composer. 
+<h2>Важные технические замечания:</h2>
 
+<p>1. Используется библиотека PhpSpreadsheet версии 1.23.0 без Composer.<br />
+2. Тестировалось на сайте Cotonti 0.9.26 под версией PHP 8.2<br />
+3. Библиотека PhpSpreadsheet не обновлять более поздними версиями, то есть версиями новее, чем 1.23.0, потому что дальше уже требует Composer.</p>
 
-Установка плагина.
+<h2><br />
+Установка плагина.</h2>
 
-1. Папку "excelimport" закачать в папку с плагинами на сайте.
-2. Внутри дириктории плагина /public_html/plugins/excelimport на папки "uploads" и "logs" дайте права на запись 755 или 777 зависит от хостера.
-3. Идем в админку "Управление сайтом / Расширения" находим "Импорт из Excel через PhpSpreadsheet", заходим в карточку плагина и жмем "Установить".
-4. Жмем кнопку "Конфигурация" - можете отрегулировать количество строк для импорта за раз. 
-5. Если префикс вашей БД есть "cot_" - ничего не меняем. С другими префиксами БД я сам плагин не тестировал еще.
+<p>1. Папку &quot;excelimport&quot; закачать в папку с плагинами на сайте.<br />
+2. Внутри дириктории плагина /public_html/plugins/excelimport на папки &quot;uploads&quot; и &quot;logs&quot; дайте права на запись 755 или 777 зависит от хостера.<br />
+3. Идем в админку &quot;Управление сайтом / Расширения&quot; находим &quot;Импорт из Excel через PhpSpreadsheet&quot;, заходим в карточку плагина и жмем &quot;Установить&quot;.<br />
+4. Жмем кнопку &quot;Конфигурация&quot; - можете отрегулировать количество строк для импорта за раз.<br />
+5. Если префикс вашей БД есть &quot;cot_&quot; - ничего не меняем. С другими префиксами БД я сам плагин не тестировал еще.</p>
 
-Работа с импортом.
+<h2>Работа с импортом.</h2>
 
-1. Заходим в карточку расширения "excelimport" и жмем "Администрирование".
+<p>1. Заходим в карточку расширения &quot;excelimport&quot; и жмем &quot;Администрирование&quot;.</p>
 
-2. Жмем кнопку "Выбрать файл" и выбираете на компьютере свой файл xlsx или тот, что прикреплен как образец, - import_to_pages_2025_16-03.xlsx, а затем  "Загрузить файл" / "Загрузить новый файл". 
+<p>2. Жмем кнопку &quot;Выбрать файл&quot; и выбираете на компьютере свой файл xlsx или тот, что прикреплен как образец, - import_to_pages_2025_16-03.xlsx, а затем&nbsp; &quot;Загрузить файл&quot; / &quot;Загрузить новый файл&quot;.</p>
 
-3. После загрузки файла, вы увидите заголовки полей(колонок) таблицы из вашего Excel. Разумеется, при создании своего файла для импорта, кириллицу использовать в заголовках не рекомендуется.
+<p>3. После загрузки файла, вы увидите заголовки полей(колонок) таблицы из вашего Excel. Разумеется, при создании своего файла для импорта, кириллицу использовать в заголовках не рекомендуется.</p>
 
-4. Ниже таблица сопоставления полей в БД и полей в вашем файле импорта. 
-	Пусть не пугает написание и название полей слева, например "Alias", "Meta Description" в коде плагина все они корректно прописанны, как пример:
+<p>4. Ниже таблица сопоставления полей в БД и полей в вашем файле импорта.<br />
+&nbsp;&nbsp;&nbsp; Пусть не пугает написание и название полей слева, например &quot;Alias&quot;, &quot;Meta Description&quot; в коде плагина все они корректно прописанны, <strong>как пример</strong>:</p>
 
-    'page_alias' => 'Alias',
-    'page_state' => 'State',
-    'page_cat' => 'Category',
-    'page_title' => 'Title',
-    'page_desc' => 'Description',
-    'page_keywords' => 'Keywords',
-    'page_metatitle' => 'Meta Title',
-    'page_metadesc' => 'Meta Description',
-	
-5. В колонке справа, в каждой строке (не все поля обязательны) прописываем название колонки из таблицы вашего Excel, где название этой колонки должно соответствовать полю в БД таблицы модуля статей "cot_pages".
+<pre class="brush:php;">
+    &#39;page_alias&#39; =&gt; &#39;Alias&#39;,
+    &#39;page_state&#39; =&gt; &#39;State&#39;,
+    &#39;page_cat&#39; =&gt; &#39;Category&#39;,
+    &#39;page_title&#39; =&gt; &#39;Title&#39;,
+    &#39;page_desc&#39; =&gt; &#39;Description&#39;,
+    &#39;page_keywords&#39; =&gt; &#39;Keywords&#39;,
+    &#39;page_metatitle&#39; =&gt; &#39;Meta Title&#39;,
+    &#39;page_metadesc&#39; =&gt; &#39;Meta Description&#39;,</pre>
 
-Например:
+<p><br />
+&nbsp;&nbsp; &nbsp;<br />
+5. В колонке справа, в каждой строке (не все поля обязательны) прописываем название колонки из таблицы вашего Excel, где название этой колонки должно соответствовать полю в БД таблицы модуля статей &quot;cot_pages&quot;.</p>
 
-5.1. Слева у вас "Alias" - это означает справа в таблице должен быть прописан заголовок таблицы из Excel, в котором находятся псевдонимы вашей статьи (в прилагаемом к плагину файлу import_to_pages_2025_16-03.xlsx псевдонимы/алиасы лежат в колонке под названием "page_alias").
+<p>Например:</p>
 
-5.2. Слева у вас "Title" - это означает справа в таблице должен быть прописан заголовок таблицы из Excel, в котором находятся названия статей. (в прилагаемом к плагину файлу import_to_pages_2025_16-03.xlsx названия статей лежат в колонке под названием "page_title").
+<p>5.1. Слева у вас &quot;Alias&quot; - это означает справа в таблице должен быть прописан заголовок таблицы из Excel, в котором находятся псевдонимы вашей статьи (в прилагаемом к плагину файлу import_to_pages_2025_16-03.xlsx псевдонимы/алиасы лежат в колонке под названием &quot;page_alias&quot;).</p>
 
-и так далее. 
+<p>5.2. Слева у вас &quot;Title&quot; - это означает справа в таблице должен быть прописан заголовок таблицы из Excel, в котором находятся названия статей. (в прилагаемом к плагину файлу import_to_pages_2025_16-03.xlsx названия статей лежат в колонке под названием &quot;page_title&quot;).</p>
 
-6. Критически важное замечание!
-Плагин не умеет создавать категории. Поэтому оставьте пустым поле справа напротив поля "Category", которое слева.
-По умолчанию, если категория не указана, - статьи импортируются в категорию статей "news".
-Перед убедитесь, что в структуре Управление сайтом / Расширения / Pages / Структура у вас есть раздел с кодом "news".
-Можно ее создать, если ее нет, или поле таблицы с кодом категории в вашем файле эксель привести в точное соответствие со структурой модуля "Pages", для каждой статьи в вашем файле импорта.
+<p>и так далее.</p>
 
-7. Все поля (важные и обязательные) заполнили, - внизу кнопка "Импортировать".
+<p>6. Критически важное замечание!<br />
+Плагин не умеет создавать категории. Поэтому оставьте пустым поле справа напротив поля &quot;Category&quot;, которое слева.<br />
+По умолчанию, если категория не указана, - статьи импортируются в категорию статей &quot;news&quot;.<br />
+Перед убедитесь, что в структуре Управление сайтом / Расширения / Pages / Структура у вас есть раздел с кодом &quot;news&quot;.<br />
+Можно ее создать, если ее нет, или поле таблицы с кодом категории в вашем файле эксель привести в точное соответствие со структурой модуля &quot;Pages&quot;, для каждой статьи в вашем файле импорта.</p>
 
-Проверил сам не однократно - плагин импорта работает.
-Смотрите скриншоты в теме поддержки по ссылке ниже.
+<p>7. Все поля (важные и обязательные) заполнили, - внизу кнопка &quot;Импортировать&quot;.</p>
 
-Скачать бесплатно плагин ["Импорт из Excel через PhpSpreadsheet"](https://github.com/webitproff/cot-excelimport-PhpSpreadsheet_No-Composer/).
+<p>Проверил сам не однократно - плагин импорта работает.<br />
+Смотрите скриншоты в теме поддержки по ссылке ниже.</p>
 
-Тема поддержки на форуме. 
+<p>Скачать бесплатно плагин<a href="https://github.com/webitproff/cot-excelimport-PhpSpreadsheet_No-Composer"><strong> &quot;Импорт из Excel через PhpSpreadsheet&quot;</strong></a>.</p>
 
-Cotonti. Import from Excel via PhpSpreadsheet
+<p><a href="https://abuyfile.com/ru/forums/cotonti/custom/plugs/topic123"><strong>Тема поддержки на форуме.</strong></a></p>
 
-A plugin for importing articles for all Cotonti-based websites.
-Important Technical Notes:
+<p>&nbsp;</p>
 
-    Uses the PhpSpreadsheet library version 1.23.0 without Composer.
-    Tested on a Cotonti 0.9.26 website running PHP 8.2.
-    Do not update the PhpSpreadsheet library to versions newer than 1.23.0, as later versions require Composer.
+<hr />
 
-Plugin Installation:
+<h1>Cotonti. Import from Excel via PhpSpreadsheet</h1>
 
-    Upload the "excelimport" folder to the plugins directory on your website.
-    Inside the plugin directory /public_html/plugins/excelimport, set write permissions (755 or 777, depending on your hosting provider) for the "uploads" and "logs" folders.
-    Go to the admin panel: "Site Management / Extensions," find "Import from Excel via PhpSpreadsheet," open the plugin card, and click "Install."
-    Click the "Configuration" button—you can adjust the number of rows to import at once.
-    If your database prefix is "cot_", no changes are needed. I haven’t tested the plugin with other database prefixes yet.
+<p>A plugin for importing articles for all Cotonti-based websites.</p>
 
-Working with the Import:
+<h2>Important Technical Notes:</h2>
 
-    Go to the "excelimport" extension card and click "Administration."
+<p>&nbsp;&nbsp;&nbsp; Uses the PhpSpreadsheet library version 1.23.0 without Composer.<br />
+&nbsp;&nbsp;&nbsp; Tested on a Cotonti 0.9.26 website running PHP 8.2.<br />
+&nbsp;&nbsp;&nbsp; Do not update the PhpSpreadsheet library to versions newer than 1.23.0, as later versions require Composer.</p>
 
-    Click the "Select File" button and choose your .xlsx file from your computer (or use the sample file attached—import_to_pages_2025_16-03.xlsx), then click "Upload File" / "Upload New File."
+<h2>Plugin Installation:</h2>
 
-    After uploading the file, you’ll see the headers of the table columns from your Excel file. Naturally, when creating your own import file, it’s recommended to avoid using Cyrillic characters in the headers.
+<p>&nbsp;&nbsp;&nbsp; Upload the &quot;excelimport&quot; folder to the plugins directory on your website.<br />
+&nbsp;&nbsp;&nbsp; Inside the plugin directory /public_html/plugins/excelimport, set write permissions (755 or 777, depending on your hosting provider) for the &quot;uploads&quot; and &quot;logs&quot; folders.<br />
+&nbsp;&nbsp;&nbsp; Go to the admin panel: &quot;Site Management / Extensions,&quot; find &quot;Import from Excel via PhpSpreadsheet,&quot; open the plugin card, and click &quot;Install.&quot;<br />
+&nbsp;&nbsp;&nbsp; Click the &quot;Configuration&quot; button&mdash;you can adjust the number of rows to import at once.<br />
+&nbsp;&nbsp;&nbsp; If your database prefix is &quot;cot_&quot;, no changes are needed. I haven&rsquo;t tested the plugin with other database prefixes yet.</p>
 
-    Below is a field mapping table for the database fields and the fields in your import file.
+<h2>Working with the Import:</h2>
 
-    Don’t be alarmed by the naming of the fields on the left, such as "Alias" or "Meta Description"—in the plugin code, they are all correctly defined, for example:
-    php
+<p>&nbsp;&nbsp;&nbsp; Go to the &quot;excelimport&quot; extension card and click &quot;Administration.&quot;</p>
 
-    'page_alias' => 'Alias',
-    'page_state' => 'State',
-    'page_cat' => 'Category',
-    'page_title' => 'Title',
-    'page_desc' => 'Description',
-    'page_keywords' => 'Keywords',
-    'page_metatitle' => 'Meta Title',
-    'page_metadesc' => 'Meta Description',
+<p>&nbsp;&nbsp;&nbsp; Click the &quot;Select File&quot; button and choose your .xlsx file from your computer (or use the sample file attached&mdash;import_to_pages_2025_16-03.xlsx), then click &quot;Upload File&quot; / &quot;Upload New File.&quot;</p>
 
-    In the right column, for each row (not all fields are mandatory), enter the column header from your Excel table that corresponds to the database field in the "cot_pages" articles module.
+<p>&nbsp;&nbsp;&nbsp; After uploading the file, you&rsquo;ll see the headers of the table columns from your Excel file. Naturally, when creating your own import file, it&rsquo;s recommended to avoid using Cyrillic characters in the headers.</p>
 
-For example:
+<p>&nbsp;&nbsp;&nbsp; Below is a field mapping table for the database fields and the fields in your import file.</p>
 
-5.1. On the left, you have "Alias"—this means that in the right column, you should enter the header from your Excel table that contains the aliases for your articles (in the sample file import_to_pages_2025_16-03.xlsx attached to the plugin, aliases are in the column titled "page_alias").
+<p>&nbsp;&nbsp;&nbsp; Don&rsquo;t be alarmed by the naming of the fields on the left, such as &quot;Alias&quot; or &quot;Meta Description&quot;&mdash;in the plugin code, they are all correctly defined, for example:<br />
+&nbsp;&nbsp;&nbsp; php</p>
 
-5.2. On the left, you have "Title"—this means that in the right column, you should enter the header from your Excel table that contains the article titles (in the sample file import_to_pages_2025_16-03.xlsx, article titles are in the column titled "page_title").
+<pre class="brush:php;">
+    &#39;page_alias&#39; =&gt; &#39;Alias&#39;,
+    &#39;page_state&#39; =&gt; &#39;State&#39;,
+    &#39;page_cat&#39; =&gt; &#39;Category&#39;,
+    &#39;page_title&#39; =&gt; &#39;Title&#39;,
+    &#39;page_desc&#39; =&gt; &#39;Description&#39;,
+    &#39;page_keywords&#39; =&gt; &#39;Keywords&#39;,
+    &#39;page_metatitle&#39; =&gt; &#39;Meta Title&#39;,
+    &#39;page_metadesc&#39; =&gt; &#39;Meta Description&#39;,</pre>
 
-And so on.
+<p>&nbsp;&nbsp;&nbsp; In the right column, for each row (not all fields are mandatory), enter the column header from your Excel table that corresponds to the database field in the &quot;cot_pages&quot; articles module.</p>
 
-    Critically Important Note!
-    The plugin does not create categories. Therefore, leave the right field empty next to the "Category" field on the left.
-    By default, if no category is specified, articles are imported into the "news" category.
-    Before proceeding, ensure that in "Site Management / Extensions / Pages / Structure," you have a section with the code "news."
-    You can create it if it doesn’t exist, or adjust the category code field in your Excel file to exactly match the structure of the "Pages" module for each article in your import file.
-    Once all important and required fields are filled in, click the "Import" button at the bottom.
+<p>For example:</p>
 
-I’ve tested it multiple times myself—the import plugin works.
-Download the ["Import from Excel via PhpSpreadsheet"](https://github.com/webitproff/cot-excelimport-PhpSpreadsheet_No-Composer/) plugin for free.
+<p>5.1. On the left, you have &quot;Alias&quot;&mdash;this means that in the right column, you should enter the header from your Excel table that contains the aliases for your articles (in the sample file import_to_pages_2025_16-03.xlsx attached to the plugin, aliases are in the column titled &quot;page_alias&quot;).</p>
 
-Support thread on the forum.
+<p>5.2. On the left, you have &quot;Title&quot;&mdash;this means that in the right column, you should enter the header from your Excel table that contains the article titles (in the sample file import_to_pages_2025_16-03.xlsx, article titles are in the column titled &quot;page_title&quot;).</p>
+
+<p>And so on.</p>
+
+<p>&nbsp;&nbsp;&nbsp; Critically Important Note!<br />
+&nbsp;&nbsp;&nbsp; The plugin does not create categories. Therefore, leave the right field empty next to the &quot;Category&quot; field on the left.<br />
+&nbsp;&nbsp;&nbsp; By default, if no category is specified, articles are imported into the &quot;news&quot; category.<br />
+&nbsp;&nbsp;&nbsp; Before proceeding, ensure that in &quot;Site Management / Extensions / Pages / Structure,&quot; you have a section with the code &quot;news.&quot;<br />
+&nbsp;&nbsp;&nbsp; You can create it if it doesn&rsquo;t exist, or adjust the category code field in your Excel file to exactly match the structure of the &quot;Pages&quot; module for each article in your import file.<br />
+&nbsp;&nbsp;&nbsp; Once all important and required fields are filled in, click the &quot;Import&quot; button at the bottom.</p>
+
+<p>I&rsquo;ve tested it multiple times myself&mdash;the import plugin works.<br />
+Download the <a href="https://github.com/webitproff/cot-excelimport-PhpSpreadsheet_No-Composer"><strong>&quot;Import from Excel via PhpSpreadsheet&quot;</strong></a> plugin for free.</p>
+
+<p><a href="https://abuyfile.com/ru/forums/cotonti/custom/plugs/topic123"><strong>Support thread on the forum</strong></a>.</p>
+
+<p>&nbsp;</p>
