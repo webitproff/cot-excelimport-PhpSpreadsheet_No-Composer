@@ -67,7 +67,7 @@
 
 <p><a href="https://abuyfile.com/ru/forums/cotonti/custom/plugs/topic123"><strong>Тема поддержки на форуме.</strong></a></p>
 
-<p>&nbsp;</p>
+Если вас интересует [плагин ЭКСПОРТА данных в Excel](https://github.com/webitproff/cot-excel_export) через PhpSpreadsheet
 
 <hr />
 
