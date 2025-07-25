@@ -96,8 +96,9 @@ function cot_excelimport_get_headers(string $filePath, string $fileName): array|
  */
 function cot_excelimport_process(string $filePath, array $mapping, string $fileName): string
 {
-    global $db, $cfg, $db_x, $sys, $usr;
-
+    global $db, $cfg, $db_x, $db_pages, $sys, $usr;
+	$db_pages = $db_x . 'pages';
+    
     $fileExt = cot_excelimport_check_format($fileName);
     if ($fileExt === false) {
         return "Ошибка: формат не поддерживается.";
@@ -113,7 +114,7 @@ function cot_excelimport_process(string $filePath, array $mapping, string $fileN
     $sheet = $spreadsheet->getActiveSheet();
 
     $totalRows = $sheet->getHighestRow() - 1;
-    $table = ($targetTable === 'pages') ? 'cot_pages' : $targetTable;
+    $table = $db_pages; //($targetTable === 'pages') ? 'cot_pages' : $targetTable;
 
     $_SESSION['import_progress'] = 0;
     $_SESSION['import_total'] = min($totalRows, $maxRows > 0 ? $maxRows : $totalRows);
