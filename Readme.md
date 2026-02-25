@@ -2,7 +2,7 @@
 
 <h2>Плагин импорта статей для всех сайтов на Cotonti.</h2>
 
-<p>&nbsp;</p>
+<p><a href="https://t.me/aBuyFILE/185" target="_blank"><strong>Video in Telegram</strong></a> | <a href="https://www.youtube.com/watch?v=tisRJEZcQa4" target="_blank"><strong>Video in YouTube</strong></a></p>
 
 <h2>Важные технические замечания:</h2>
 
@@ -135,3 +135,4 @@ Download the <a href="https://github.com/webitproff/cot-excelimport-PhpSpreadshe
 <p><a href="https://abuyfile.com/ru/forums/cotonti/custom/plugs/topic123"><strong>Support thread on the forum</strong></a>.</p>
 
 <p>&nbsp;</p>
+
