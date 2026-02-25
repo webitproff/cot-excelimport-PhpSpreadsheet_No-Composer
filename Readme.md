@@ -1,6 +1,8 @@
-<h1>Cotonti. Импорт из Excel через PhpSpreadsheet</h1>
+<h1>Import from CSV Excel articles to Page Module Cotonti CMF</h1>
 
 <h2>Плагин импорта статей для всех сайтов на Cotonti.</h2>
+
+![Import from CSV Excel articles to Page Module Cotonti CMF 2026](https://github.com/user-attachments/assets/0d17dc2d-0e80-402b-b65c-98d2468f1040)
 
 <p><a href="https://t.me/aBuyFILE/185" target="_blank"><strong>Video in Telegram</strong></a> | <a href="https://www.youtube.com/watch?v=tisRJEZcQa4" target="_blank"><strong>Video in YouTube</strong></a></p>
 
@@ -135,4 +137,5 @@ Download the <a href="https://github.com/webitproff/cot-excelimport-PhpSpreadshe
 <p><a href="https://abuyfile.com/ru/forums/cotonti/custom/plugs/topic123"><strong>Support thread on the forum</strong></a>.</p>
 
 <p>&nbsp;</p>
+
 
