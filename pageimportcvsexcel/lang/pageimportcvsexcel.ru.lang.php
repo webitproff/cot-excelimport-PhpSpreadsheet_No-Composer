@@ -31,7 +31,7 @@ $L['cfg_allowed_formats_hint'] = 'Список форматов файлов ч�
  */
 $L['info_title'] = 'Page Module articles CSV/Excel Import';
 $L['info_desc'] = 'Инструмент для импорта данных из CSV/Excel';
-$L['info_notes'] = ''<a href="https://abuyfile.com/ru/forums/cotonti/custom/plugs/topic123" target="_blank"><strong>Инструкции, помощь и поддержка</strong></a>. Тестировалось на сайте Cotonti 0.9.26+ под версией PHP 8.4';
+$L['info_notes'] = '<a href="https://abuyfile.com/ru/forums/cotonti/custom/plugs/topic123" target="_blank"><strong>Инструкции, помощь и поддержка</strong></a>. Тестировалось на сайте Cotonti 0.9.26+ под версией PHP 8.4';
 /**
  * Plugin Admin
  */
@@ -215,6 +215,7 @@ $L['pageimportcvsexcel_map_col_filecount'] = '
 <br>
 <span class="text-muted fw-light small">File Count</span>
 ';
+
 
 
 
