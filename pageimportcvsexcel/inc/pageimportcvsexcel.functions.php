@@ -4,11 +4,11 @@
  * Plugin pageimportcvsexcel for Cotonti 0.9.26, PHP 8.4+
  * Filename: pageimportcvsexcel.functions.php
  * Purpose: Functions for the Plugin pageimportcvsexcel
- * Date: Feb 25Th, 2026
+ * Date: Feb 27Th, 2026
  * Source: https://github.com/webitproff/cot-excelimport-PhpSpreadsheet_No-Composer
  * Support: https://abuyfile.com/ru/forums/cotonti/custom/plugs/topic123
  * @package pageimportcvsexcel
- * @version 2.0.1
+ * @version 2.2.27
  * @author webitproff
  * @copyright Copyright (c) webitproff 2026 | https://github.com/webitproff
  * @license BSD
@@ -335,3 +335,4 @@ function cot_pageimportcvsexcel_process(string $filePath, array $mapping, string
         return $error;
     }
 }
+
