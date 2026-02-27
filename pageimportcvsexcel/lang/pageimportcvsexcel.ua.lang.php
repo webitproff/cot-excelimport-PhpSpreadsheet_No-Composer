@@ -5,11 +5,11 @@
  * Plugin pageimportcvsexcel for Cotonti 0.9.26, PHP 8.4+ 
  * Filename: pageimportcvsexcel.ua.lang.php
  * Purpose: Ukrainian language localization stringsfor pageimportcvsexcel
- * Date: Feb 25Th, 2026
+ * Date: Feb 27Th, 2026
  * Source: https://github.com/webitproff/cot-excelimport-PhpSpreadsheet_No-Composer
  * Support: https://abuyfile.com/ru/forums/cotonti/custom/plugs/topic123
  * @package pageimportcvsexcel
- * @version 2.0.1
+ * @version 2.2.27
  * @author webitproff
  * @copyright Copyright (c) webitproff 2026 | https://github.com/webitproff
  * @license BSD
@@ -31,7 +31,7 @@ $L['cfg_allowed_formats_hint'] = 'Список форматів файлів ч�
  */
 $L['info_title'] = 'Page Module articles CSV/Excel Import';
 $L['info_desc'] = 'Інструмент для імпорту даних із CSV/Excel файлів';
-$L['info_notes'] = 'Використовується бібліотека PhpSpreadsheet версії 1.23.0 без Composer. Протестовано на Cotonti 0.9.26+ під PHP 8.4';
+$L['info_notes'] = '<a href="https://abuyfile.com/ru/forums/cotonti/custom/plugs/topic123" target="_blank"><strong>Help & Support for using this Plugin</strong></a>. Протестовано на Cotonti 0.9.26+ під PHP 8.4';
 
 /**
  * Plugin Admin
@@ -217,4 +217,5 @@ $L['pageimportcvsexcel_map_col_filecount'] = '
 <code class="text-muted">page_filecount</code></span>
 <br>
 <span class="text-muted fw-light small">Кількість прикріплених файлів</span>
+
 ';
