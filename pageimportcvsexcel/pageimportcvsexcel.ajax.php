@@ -9,9 +9,9 @@ Hooks=ajax
  * Plugin pageimportcvsexcel for Cotonti 0.9.26, PHP 8.4+
  * Filename: pageimportcvsexcel.ajax.php
  * Purpose: Connect to hook "ajax" in Cotonti Core 
- * Date: Feb 25Th, 2026
+ * Date: Feb 27Th, 2026
  * @package pageimportcvsexcel
- * @version 2.0.1
+ * @version 2.2.27
  * @author webitproff
  * @copyright Copyright (c) webitproff 2026 | https://github.com/webitproff
  * @license BSD
@@ -33,4 +33,5 @@ if (COT_AJAX && cot_import('a', 'G', 'TXT') === 'progress') {
     header('Content-Type: application/json');
     echo json_encode(['progress' => $percentage]);
     exit;
+
 }
