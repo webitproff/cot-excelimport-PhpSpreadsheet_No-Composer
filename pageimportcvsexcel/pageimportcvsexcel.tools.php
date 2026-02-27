@@ -9,11 +9,11 @@ Hooks=tools
  * Plugin pageimportcvsexcel for Cotonti 0.9.26, PHP 8.4+
  * Filename: pageimportcvsexcel.tools.php
  * Purpose: Administration for the Plugin pageimportcvsexcel
- * Date: Feb 25Th, 2026
+ * Date: Feb 27Th, 2026
  * Source: https://github.com/webitproff/cot-excelimport-PhpSpreadsheet_No-Composer
  * Support: https://abuyfile.com/ru/forums/cotonti/custom/plugs/topic123
  * @package pageimportcvsexcel
- * @version 2.0.1
+ * @version 2.2.27
  * @author webitproff
  * @copyright Copyright (c) webitproff 2026 | https://github.com/webitproff
  * @license BSD
@@ -199,5 +199,6 @@ if (!isset($_SESSION['excel_headers']) || !is_array($_SESSION['excel_headers']))
 cot_display_messages($t);
 $t->parse('MAIN');
 $pluginBody = $t->text('MAIN');
+
 
 cot_pageimportcvsexcel_log("Отрендерено: " . (!empty($pluginBody) ? 'содержимое есть (' . strlen($pluginBody) . ' символов)' : 'пусто'));
