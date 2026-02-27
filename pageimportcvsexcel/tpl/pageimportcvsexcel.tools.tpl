@@ -8,7 +8,7 @@
 	* Source: https://github.com/webitproff/cot-excelimport-PhpSpreadsheet_No-Composer
 	* Support: https://abuyfile.com/ru/forums/cotonti/custom/plugs/topic123
 	* @package pageimportcvsexcel
-	* @version 2.0.1
+	* @version 2.2.27
 	* @author webitproff
 	* @copyright Copyright (c) webitproff 2026 | https://github.com/webitproff
 	* @license BSD
@@ -151,4 +151,5 @@
 	</div>
 </div>
 <!-- END: MAIN -->
+
 
