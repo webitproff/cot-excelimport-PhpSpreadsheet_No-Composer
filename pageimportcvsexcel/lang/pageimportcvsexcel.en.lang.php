@@ -4,11 +4,11 @@
  * Plugin pageimportcvsexcel for Cotonti 0.9.26, PHP 8.4+ 
  * Filename: pageimportcvsexcel.en.lang.php
  * Purpose: English localization strings for pageimportcvsexcel
- * Date: Feb 25Th, 2026
+ * Date: Feb 27Th, 2026
  * Source: https://github.com/webitproff/cot-excelimport-PhpSpreadsheet_No-Composer
  * Support: https://abuyfile.com/ru/forums/cotonti/custom/plugs/topic123
  * @package pageimportcvsexcel
- * @version 2.0.1
+ * @version 2.2.27
  * @author webitproff
  * @copyright Copyright (c) webitproff 2026 | https://github.com/webitproff
  * @license BSD
@@ -30,7 +30,7 @@ $L['cfg_allowed_formats_hint'] = 'Comma-separated list of file formats (e.g., xl
  */
 $L['info_title'] = 'Page Module articles CSV/Excel Import';
 $L['info_desc'] = 'Tool for importing data from CSV/Excel files';
-$L['info_notes'] = 'Uses PhpSpreadsheet library version 1.23.0 without Composer. Tested on Cotonti 0.9.26+ with PHP 8.4';
+$L['info_notes'] = '<a href="https://abuyfile.com/ru/forums/cotonti/custom/plugs/topic123" target="_blank"><strong>Help & Support for using this Plugin</strong></a>. Tested on Cotonti 0.9.26+ with PHP 8.4';
 
 /**
  * Plugin Admin
@@ -216,4 +216,5 @@ $L['pageimportcvsexcel_map_col_filecount'] = '
 <code class="text-muted">page_filecount</code></span>
 <br>
 <span class="text-muted fw-light small">Number of attached files</span>
+
 ';
