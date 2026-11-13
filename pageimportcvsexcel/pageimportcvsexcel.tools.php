@@ -6,14 +6,14 @@ Hooks=tools
 ==================== */
 /**
  * Page Module articles Import from CSV/Excel
- * Plugin pageimportcvsexcel for Cotonti 0.9.26, PHP 8.4+
+ * Plugin pageimportcvsexcel for Cotonti v.1, PHP 8.5+
  * Filename: pageimportcvsexcel.tools.php
  * Purpose: Administration for the Plugin pageimportcvsexcel
- * Date: Feb 27Th, 2026
+ * Date: Nov 13Th, 2026
  * Source: https://github.com/webitproff/cot-excelimport-PhpSpreadsheet_No-Composer
  * Support: https://abuyfile.com/ru/forums/cotonti/custom/plugs/topic123
  * @package pageimportcvsexcel
- * @version 2.2.27
+ * @version 2.3.1
  * @author webitproff
  * @copyright Copyright (c) webitproff 2026 | https://github.com/webitproff
  * @license BSD
@@ -25,7 +25,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require_once cot_incfile('pageimportcvsexcel', 'plug');
-require_once cot_langfile('pageimportcvsexcel', 'plug');
+
 
 if (!cot_auth('plug', 'pageimportcvsexcel', 'W')) {
     cot_die_message(403);
@@ -39,6 +39,8 @@ $adminHelp = Cot::$L['pageimportcvsexcel_adminHelp'] ?? 'help text not writed ye
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
+$db_pages = $db_x . 'pages';
 
 $uploadDir = $cfg['plugins_dir'] . '/pageimportcvsexcel/uploads/';
 if (!file_exists($uploadDir)) {
@@ -69,6 +71,43 @@ $pageFields = [
     'page_count' =>            $L['pageimportcvsexcel_map_col_count'],
     'page_filecount' =>        $L['pageimportcvsexcel_map_col_filecount'],
 ];
+
+// Добавляем экстраполя страниц в список для маппинга
+// Добавляем экстраполя страниц в список для маппинга
+// EXF: используем Cot::$extrafields вместо $cot_extrafields — надёжнее в admin-скоупе
+$pageExtrafields = Cot::$extrafields[$db_pages] ?? [];
+if (!empty($pageExtrafields) && is_array($pageExtrafields)) {
+    foreach ($pageExtrafields as $exfld) {
+        $exfldName  = 'page_' . $exfld['field_name'];
+        $exfldTitle = function_exists('cot_extrafield_title')
+            ? cot_extrafield_title($exfld, 'page_')
+            : ($exfld['field_description'] ?? $exfld['field_name']);
+        if ($exfldTitle === '') {
+            $exfldTitle = $exfld['field_name'];
+        }
+        $pageFields[$exfldName] = $exfldTitle . ' (extra)';
+    }
+}
+
+// EXF: экстраполя xtradbrowpage (отдельная таблица cot_xtradbrowpage).
+// Ключи с префиксом xtra_, чтобы не смешивать с page_-полями в маппинге.
+$xtraTable = $db_x . 'xtradbrowpage';
+if (cot_plugin_active('xtradbrowpage')) {
+    require_once cot_langfile('xtradbrowpage', 'plug');
+    $xtraExtrafields = Cot::$extrafields[$xtraTable] ?? [];
+    if (!empty($xtraExtrafields) && is_array($xtraExtrafields)) {
+        foreach ($xtraExtrafields as $exfld) {
+            $exfldName  = 'xtra_' . $exfld['field_name'];
+            $exfldTitle = function_exists('cot_extrafield_title')
+                ? cot_extrafield_title($exfld, 'xtra_')
+                : ($exfld['field_description'] ?? $exfld['field_name']);
+            if ($exfldTitle === '') {
+                $exfldTitle = $exfld['field_name'];
+            }
+            $pageFields[$exfldName] = $exfldTitle . ' (xtradbrowpage)';
+        }
+    }
+}
 // присваиваем шаблону имя части и/или локации расширения
 $tpl_ExtCode          = 'pageimportcvsexcel';   // код плагина в составе имени шаблона
 $tpl_PartExt          = 'tools';                 // говорим, что это админка плагина
