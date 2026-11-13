@@ -6,10 +6,12 @@
 
 <p><a href="https://t.me/aBuyFILE/185" target="_blank"><strong>Video in Telegram</strong></a> | <a href="https://www.youtube.com/watch?v=tisRJEZcQa4" target="_blank"><strong>Video in YouTube</strong></a></p>
 
+## **Версия 2.3.1** 
+**добавленно импорт в экстраполя модуля + экстраполя плагина 'xtradbrowpage'**
 <h2>Важные технические замечания:</h2>
 
 <p>1. Используется библиотека PhpSpreadsheet версии 1.23.0 без Composer.<br />
-2. Тестировалось на сайте Cotonti 0.9.26 под версией PHP 8.2 - 8.4<br />
+2. Тестировалось на сайте Cotonti v.1 под версией PHP 8.5<br />
 3. Библиотека PhpSpreadsheet не обновлять более поздними версиями, то есть версиями новее, чем 1.23.0, потому что дальше уже требует Composer.</p>
 
 <h2><br />
